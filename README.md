@@ -1,3 +1,15 @@
+# Ahmad Ramadan – Personal Portfolio
+
+Welcome to my personal website, built using the Dark Poole Jekyll theme.  
+I'm Ahmad Ramadan, a 20-year-old Lebanese M1 Data Science student at Centrale Lille – Université de Lille.  
+This site showcases my projects, interests, and journey in data science and machine learning.
+
+[Visit my site](https://ahmadramadan123899.github.io)
+
+---
+
+## About the Theme
+
 # Dark Poole
 
 ![Dark Poole](https://user-images.githubusercontent.com/13270895/89133355-26b3af80-d4e9-11ea-81cd-eacaa9c78320.png)
@@ -116,10 +128,10 @@ nav:
 
 ## Author
 
-**Mark Otto**
+**Ahmad Ramadan**
 
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
+- <https://github.com/Ahmadramadan123899>
+- <https://linkedin.com/in/ahmad-ramadan>
 
 ## License
 
