@@ -3,27 +3,31 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+## Ahmad Ramadan
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Hi! I'm Ahmad Ramadan, a 20-year-old Lebanese student passionate about data, learning, and building meaningful things with technology.
 
-There are currently two themes built on Poole:
+---
 
-- [Hyde](https://hyde.getpoole.com)
-- [Lanyon](https://lanyon.getpoole.com)
+## Data Science M1 Student
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+I'm currently pursuing my Master's (M1) in Data Science at Centrale Lille – Université de Lille. My studies focus on machine learning, statistics, and turning raw data into useful insights.
 
-## Setup
+---
 
-Some fun facts about the setup of this project include:
+## Studying in France
 
-- Built for [Jekyll](https://jekyllrb.com)
-- Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-- Coded with [Atom](https://atom.io), an amazing open source code editor
+Living and studying in France has been an exciting journey. It’s given me the chance to explore new ideas, meet people from around the world, and dive deeper into the world of data science.
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+---
 
-Thanks for reading!
+## Hobbies & Interests
+
+When I’m not coding or studying, I enjoy:
+-  Reading scientific articles and books
+-  Writing and journaling to reflect and stay grounded
+-  Exploring new ideas in AI, psychology, and philosophy
+
+---
+
+Thanks for stopping by! Feel free to explore the rest of my site or [connect with me](https://linkedin.com/in/ahmad-ramadan).
