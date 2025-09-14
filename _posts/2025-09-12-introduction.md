@@ -44,5 +44,7 @@ Basic Artificial Intelligence and Image Annotation course, DOT LEBANON | Sep 202
 📧 ahmad.ramadan2005f@gmail.com  
 🔗 [LinkedIn](linkedin.com/in/ahmad-ramadan) | [GitHub](https://github.com/Ahmadramadan123899)
 
+[Download my business card (PDF)](https://github.com/Ahmadramadan123899/my-business-card/releases/latest/download/card.pdf)
+
 ## Credits
 Theme forked from [jekyll-dark-poole](https://github.com/andrewhwanpark/dark-poole)
