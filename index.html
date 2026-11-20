@@ -250,20 +250,37 @@
           <p>On lab data, the rebuild matches the paper closely. On in-the-wild data it started far behind; my dual-pathway encoder closed a good part of the gap on AFEW.</p>
         </div>
         <div class="panel" role="tabpanel" hidden>
-          <div class="flow" aria-label="Model pipeline">
-            <span class="node">Video · 16 frames</span><span class="arrow">→</span>
-            <span class="node">68 face points (2D-FAN)<br><small>+ patch around each point</small></span><span class="arrow">→</span>
-            <span class="node">3 graph branches<br><small>+ ResNet-18 (FER+)</small></span><span class="arrow">→</span>
-            <span class="node">Fusion</span><span class="arrow">→</span>
-            <span class="node">GCN + spatial &amp; temporal transformers</span><span class="arrow">→</span>
-            <span class="node node--accent">Emotion</span>
+          <div class="arch" aria-label="Model architecture">
+            <div class="arch__row"><span class="node">Video clip · 16 frames<br><small>face crop 224×224 · 2D-FAN finds 68 landmarks</small></span></div>
+            <div class="arch__split" aria-hidden="true"></div>
+            <div class="arch__streams">
+              <div class="arch__stream">
+                <span class="arch__tag">Geometry stream</span>
+                <span class="node">3 coordinate branches<br><small>position vs. nose · position inside its face part · motion since last frame</small></span>
+                <span class="arrow">↓</span>
+                <span class="node">Spatial + temporal graph convolutions<br><small>per landmark · (N, P, 768)</small></span>
+              </div>
+              <div class="arch__stream arch__stream--app">
+                <span class="arch__tag">Appearance stream <em>(what I worked on)</em></span>
+                <span class="node">49×49 patch around each landmark</span>
+                <span class="arrow">↓</span>
+                <span class="node">Local appearance encoder<br><small>ResNet-18 pretrained on FER+ · (N, P, 512)</small></span>
+              </div>
+            </div>
+            <div class="arch__split arch__split--join" aria-hidden="true"></div>
+            <div class="arch__row arch__row--chain">
+              <span class="node">Concatenate + project<br><small>1280 → 512 per landmark</small></span><span class="arrow">→</span>
+              <span class="node">Graph-conv stack<br><small>spatial conv unit · component attention · temporal conv unit · frame attention</small></span><span class="arrow">→</span>
+              <span class="node">Spatial transformer → temporal transformer<br><small>+ spatio-temporal positional embedding</small></span><span class="arrow">→</span>
+              <span class="node node--accent">Pooling → emotion<br><small>cross-entropy + center loss</small></span>
+            </div>
           </div>
           <ul class="bullets">
-            <li>The face points form a <strong>graph</strong>: points that belong together (corners of an eye, outline of the mouth) are connected.</li>
-            <li>For each point: its position relative to the nose, its position inside its own face part, and how much it moved since the last frame.</li>
-            <li><strong>Graph convolutions</strong> share information between neighbours; <strong>transformers</strong> let every point attend to every other point and every frame to every other frame.</li>
-            <li>An attention step learns which face parts and which frames matter most (the mouth for a smile, the peak of the expression).</li>
-            <li>Training: cross-entropy + center loss. Fine-tuning the ResNet patch encoder end-to-end alone raised AFEW from 29.77% to 38.64%.</li>
+            <li>The 68 landmarks form a <strong>graph</strong>: points that belong together (corners of an eye, outline of the mouth) are connected.</li>
+            <li>The <strong>geometry stream</strong> encodes each landmark three ways: where it is compared to the nose, where it is inside its own face part, and how much it moved since the last frame.</li>
+            <li>The <strong>appearance stream</strong> reads what the skin looks like around each point: a small patch goes through a ResNet-18 pretrained on FER+. Fine-tuning it end-to-end alone raised AFEW from 29.77% to 38.64%.</li>
+            <li>Both streams are fused per landmark, then graph convolutions share information between neighbours, attention units learn which face parts and which frames matter, and <strong>transformers</strong> let every point attend to every other point and every frame to every other frame.</li>
+            <li>My main contribution was on the appearance side: giving the model the <strong>whole face</strong> too, not only small patches (see Results).</li>
           </ul>
         </div>
         <div class="panel" role="tabpanel" hidden>
@@ -275,6 +292,10 @@
             <div class="bar"><span class="bar__label">Same, at 3 levels of detail</span><span class="bar__track"><i style="--v:45.17"></i></span><b class="mono">45.17%</b></div>
             <div class="bar bar--best"><span class="bar__label">Dual pathway, patches ⟷ whole face (FragNet-inspired)</span><span class="bar__track"><i style="--v:46.48"></i></span><b class="mono">46.48%</b></div>
           </div>
+          <figure class="shot shot--light">
+            <img src="assets/img/fer-dual-pathway.jpg" alt="Diagram of the dual-pathway appearance encoder: a whole-face ResNet-18 pyramid G1 to G3 sampled at each landmark position and fused with the local patch pathway at three stages" loading="lazy" width="1443" height="984">
+            <figcaption>My diagram of the best encoder (46.48% on AFEW): the whole face goes through ResNet-18 (top, levels G1 to G3); at each level the features at every landmark position are sampled and fused with the local patch pathway (bottom), inspired by FragNet. From my internship report.</figcaption>
+          </figure>
           <h4 class="panel__title">Across datasets</h4>
           <div class="table-wrap">
             <table>
@@ -352,7 +373,7 @@
             <div class="tile"><b class="mono">−8%</b><span>error vs a strong baseline (bikes available in one hour)</span></div>
             <div class="tile"><b class="mono">−19%</b><span>error vs the baseline during the morning rush</span></div>
           </div>
-          <p>A <strong>LightGBM</strong> model predicts the number of available bikes one hour ahead, retrained every hour by Airflow. I also tested hourly Paris weather (Open-Meteo) as extra features: honest result, no gain yet.</p>
+          <p>The baseline is “nothing changes” (next hour = last hour), and it is hard to beat. Predicting the number of bikes directly with <strong>LightGBM</strong> only tied it; predicting the <strong>change</strong> (bikes arriving or leaving) is what made the model win, most of all at rush hours (also −10% at the evening rush). Tested on the last 48 hours in time order, with a separate validation period, and retrained every hour by Airflow. Hourly Paris weather (Open-Meteo) did not help yet.</p>
         </div>
         <div class="chips chips--sm project__chips"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>dbt</span><span>Airflow</span><span>Docker</span><span>Power BI</span><span>LightGBM</span><span>pytest</span><span>GitHub Actions</span></div>
       </article>
@@ -382,12 +403,29 @@
           <p>A CLIP-style model: two encoders map motions and sentences into the same space, and candidates are ranked by cosine similarity. The private half of the test set was harder for every team; <strong>ours dropped the least</strong>, which took us from 2nd to 1st.</p>
         </div>
         <div class="panel" role="tabpanel" hidden>
-          <div class="flow">
-            <span class="node">Motion<br><small>frames × 384</small></span><span class="arrow">→</span>
-            <span class="node">+ velocity, acceleration<br><small>+ person-to-person distances</small></span><span class="arrow">→</span>
-            <span class="node">BiGRU + BiLSTM<br><small>attention pooling</small></span><span class="arrow">→</span>
-            <span class="node node--accent">cosine similarity</span><span class="arrow">←</span>
-            <span class="node">MPNet<br><small>pretrained, fine-tuned</small></span>
+          <div class="arch" aria-label="Model architecture">
+            <div class="arch__streams">
+              <div class="arch__stream">
+                <span class="arch__tag">Motion encoder</span>
+                <span class="node">Two-person motion<br><small>frames × 384 (192 values per person)</small></span>
+                <span class="arrow">↓</span>
+                <span class="node">+ velocity, acceleration<br><small>+ 4 person-to-person distances · linear → 512</small></span>
+                <span class="arrow">↓</span>
+                <span class="node">BiGRU and BiLSTM in parallel<br><small>each with attention pooling over frames, then concatenated</small></span>
+                <span class="arrow">↓</span>
+                <span class="node">MLP → 256-d, L2-normalized</span>
+              </div>
+              <div class="arch__stream arch__stream--app">
+                <span class="arch__tag">Text encoder</span>
+                <span class="node">Sentence</span>
+                <span class="arrow">↓</span>
+                <span class="node">MPNet (all-mpnet-base-v2)<br><small>pretrained, fine-tuned · mean pooling</small></span>
+                <span class="arrow">↓</span>
+                <span class="node">Linear → 256-d, L2-normalized</span>
+              </div>
+            </div>
+            <div class="arch__split arch__split--join" aria-hidden="true"></div>
+            <div class="arch__row"><span class="node node--accent">Cosine similarity → rank the 32 candidate sentences</span></div>
           </div>
           <ul class="bullets">
             <li>Symmetric contrastive loss (InfoNCE) with a <strong>learnable temperature</strong>, batches of 64.</li>
@@ -461,6 +499,7 @@
       <p class="contact__lead">I'm looking for a <strong>6-month internship from 23 March 2027</strong> in data science, data engineering or AI. If you have a project where messy data needs to become something that works, I'd love to hear about it.</p>
       <div class="hero__cta contact__cta">
         <a class="btn btn--primary" href="mailto:ahmad.ramadan2005f@gmail.com">ahmad.ramadan2005f@gmail.com</a>
+        <a class="btn" href="mailto:ahmad.ramadan.etu@univ-lille.fr">ahmad.ramadan.etu@univ-lille.fr</a>
         <a class="btn" href="https://www.linkedin.com/in/ahmad-ramadan-datascience" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/Ahmadramadan123899" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn--ghost" href="assets/CV_Ahmad_Ramadan.pdf" target="_blank" rel="noopener">Download CV</a>
