@@ -292,3 +292,5 @@ td{color:var(--ink-2)}
 /* research card inside Projects */
 .research__title{font-size:clamp(1.3rem,2.4vw,1.7rem);margin-bottom:20px}
 .project-gap{margin-bottom:28px}
+.project__links{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+@media (max-width:760px){.project__links{flex-direction:row;flex-wrap:wrap}}
