@@ -288,3 +288,7 @@ td{color:var(--ink-2)}
   .tabs{width:100%}
   .stat__num{font-size:1.35rem}
 }
+
+/* research card inside Projects */
+.research__title{font-size:clamp(1.3rem,2.4vw,1.7rem);margin-bottom:20px}
+.project-gap{margin-bottom:28px}

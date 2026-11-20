@@ -29,10 +29,9 @@
       <span>Ahmad Ramadan</span>
     </a>
     <nav class="nav__links" id="navlinks" aria-label="Sections">
-      <a href="#now">Now</a>
+      <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -96,55 +95,30 @@
       <h2 class="section__title reveal">About</h2>
       <div class="prose reveal">
         <p>I'm a second-year Master's student in <strong>Data Science</strong> at Université de Lille, in the joint programme with École Centrale de Lille and IMT Nord Europe. Before that I did a Bachelor's in Computer &amp; Communication Network Engineering at the Lebanese University, where I graduated <strong>ranked 1st</strong>.</p>
-        <p>I spent 10 months at the <strong>CRIStAL lab</strong> rebuilding an unpublished graph-transformer model for facial expression recognition, then pushing it on hard, in-the-wild video. On the engineering side, I enjoy building things that run by themselves: ingestion, dbt models with tests, Airflow, CI, dashboards.</p>
+        <p>I spent 10 months at the <strong>CRIStAL lab</strong> on facial expression recognition: it started as my <strong>M1 research project</strong>, rebuilding an unpublished graph-transformer model, and was then extended into a <strong>3-month internship</strong> where I pushed it on hard, in-the-wild video. On the engineering side, I enjoy building things that run by themselves: ingestion, dbt models with tests, Airflow, CI, dashboards.</p>
         <p>I'm now looking for a <strong>6-month end-of-studies internship starting 23 March 2027</strong> in data science, data engineering or AI.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ NOW: M2 RESEARCH ============ -->
-  <section class="section section--tint" id="now">
+  <!-- ============ EDUCATION ============ -->
+  <section class="section section--tint" id="education">
     <div class="wrap">
-      <div class="section__head reveal">
-        <p class="kicker"><span class="pulse-dot" aria-hidden="true"></span> Now · M2 research project · 2026–2027</p>
-        <h2 class="section__title">Can your heartbeat tell an expert from a novice?</h2>
+      <h2 class="section__title reveal">Education</h2>
+      <div class="edu">
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2025 – 2027</div>
+          <div><h3>Master's in Data Science</h3><p class="tl__org">Université de Lille · École Centrale de Lille · IMT Nord Europe</p></div>
+        </div>
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2022 – 2025</div>
+          <div><h3>Bachelor's in Computer &amp; Communication Network Engineering</h3><p class="tl__org">Lebanese University · <strong>ranked 1st</strong>, 17/20</p></div>
+        </div>
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2021 – 2022</div>
+          <div><h3>Lebanese Baccalaureate, General Sciences</h3><p class="tl__org">Iman Barja School · 18.55/20 · <strong>ranked 12th nationally</strong></p></div>
+        </div>
       </div>
-
-      <article class="research reveal">
-        <div class="research__monitor" aria-hidden="true">
-          <div class="monitor__top">
-            <span class="mono">ECG · lead I</span>
-            <span class="mono monitor__bpm"><span class="heart">&#9829;</span> <span id="bpm">72</span> bpm</span>
-          </div>
-          <svg class="monitor__svg" viewBox="0 0 600 120" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="fade" x1="0" x2="1">
-                <stop offset="0" stop-color="var(--ecg)" stop-opacity="0"/>
-                <stop offset=".15" stop-color="var(--ecg)" stop-opacity="1"/>
-              </linearGradient>
-            </defs>
-            <path class="monitor__trace" d="M0 70 H50 l8 -5 l8 5 H90 l6 10 l9 -60 l10 72 l7 -22 H140 l14 -9 l14 9 H200 l8 -5 l8 5 H240 l6 10 l9 -60 l10 72 l7 -22 H290 l14 -9 l14 9 H350 l8 -5 l8 5 H390 l6 10 l9 -60 l10 72 l7 -22 H440 l14 -9 l14 9 H500 l8 -5 l8 5 H540 l6 10 l9 -60 l10 72 l7 -22 H600"/>
-          </svg>
-          <div class="monitor__bottom mono">
-            <span>RR intervals → HRV features</span><span>novice ⟷ expert</span>
-          </div>
-        </div>
-
-        <div class="research__body">
-          <h3>Multimodal analysis of ECG/HRV data for expertise assessment during assembly tasks</h3>
-          <p class="muted">M2 research project · Université de Lille · egocentric perspective · EgoLOAD dataset</p>
-          <p>When someone assembles an object, their body reacts to how hard the task feels for them. The idea of this project is to use <strong>heart activity (ECG) and heart-rate variability (HRV)</strong>, from an egocentric (first-person) perspective, to estimate <strong>how expert a person is</strong>, by comparing people in pairs.</p>
-          <ol class="roadmap">
-            <li class="is-active"><span class="step mono">01</span><div><strong>Literature review</strong><p>Expertise assessment from physiological signals: what has been measured, how, and what worked.</p></div></li>
-            <li><span class="step mono">02</span><div><strong>Concepts</strong><p>Understanding the key concepts and how expertise relates to physiological measurements such as HRV.</p></div></li>
-            <li><span class="step mono">03</span><div><strong>EgoLOAD dataset</strong><p>Getting familiar with the data: assembly tasks recorded from an egocentric perspective, with ECG.</p></div></li>
-            <li><span class="step mono">04</span><div><strong>Models</strong><p>Statistical analyses and deep learning models that classify expertise levels through pairwise comparisons.</p></div></li>
-          </ol>
-          <div class="chips">
-            <span>ECG</span><span>HRV</span><span>Physiological signals</span><span>Egocentric data</span><span>Pairwise comparison</span><span>Statistics</span><span>Deep learning</span><span>PyTorch</span>
-          </div>
-        </div>
-      </article>
     </div>
   </section>
 
@@ -157,8 +131,8 @@
           <div class="tl__date mono">2026 – 2027</div>
           <div class="tl__card">
             <h3>M2 Research Project · ECG/HRV &amp; Expertise</h3>
-            <p class="tl__org">Université de Lille, France</p>
-            <p>Multimodal analysis of heart signals to assess expertise during assembly tasks, on the EgoLOAD dataset (see <a href="#now">Now</a>).</p>
+            <p class="tl__org">IMT Nord Europe, France</p>
+            <p>Multimodal analysis of heart signals to assess expertise during assembly tasks, on the EgoLOAD dataset (see <a href="#research">Projects</a>).</p>
           </div>
         </li>
         <li class="tl reveal">
@@ -199,6 +173,49 @@
   <section class="section section--tint" id="projects">
     <div class="wrap">
       <h2 class="section__title reveal">Projects</h2>
+
+      <!-- M2 research (in progress) -->
+      <div class="section__head reveal" id="research">
+        <p class="kicker"><span class="pulse-dot" aria-hidden="true"></span> Now · M2 research project · 2026–2027</p>
+        <h3 class="research__title">Can your heartbeat tell an expert from a novice?</h3>
+      </div>
+
+      <article class="research reveal project-gap">
+        <div class="research__monitor" aria-hidden="true">
+          <div class="monitor__top">
+            <span class="mono">ECG · lead I</span>
+            <span class="mono monitor__bpm"><span class="heart">&#9829;</span> <span id="bpm">72</span> bpm</span>
+          </div>
+          <svg class="monitor__svg" viewBox="0 0 600 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="fade" x1="0" x2="1">
+                <stop offset="0" stop-color="var(--ecg)" stop-opacity="0"/>
+                <stop offset=".15" stop-color="var(--ecg)" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <path class="monitor__trace" d="M0 70 H50 l8 -5 l8 5 H90 l6 10 l9 -60 l10 72 l7 -22 H140 l14 -9 l14 9 H200 l8 -5 l8 5 H240 l6 10 l9 -60 l10 72 l7 -22 H290 l14 -9 l14 9 H350 l8 -5 l8 5 H390 l6 10 l9 -60 l10 72 l7 -22 H440 l14 -9 l14 9 H500 l8 -5 l8 5 H540 l6 10 l9 -60 l10 72 l7 -22 H600"/>
+          </svg>
+          <div class="monitor__bottom mono">
+            <span>RR intervals → HRV features</span><span>novice ⟷ expert</span>
+          </div>
+        </div>
+
+        <div class="research__body">
+          <h3>Multimodal analysis of ECG/HRV data for expertise assessment during assembly tasks</h3>
+          <p class="muted">M2 research project · IMT Nord Europe · egocentric perspective · EgoLOAD dataset</p>
+          <p>When someone assembles an object, their body reacts to how hard the task feels for them. The idea of this project is to use <strong>heart activity (ECG) and heart-rate variability (HRV)</strong>, from an egocentric (first-person) perspective, to estimate <strong>how expert a person is</strong>, by comparing people in pairs.</p>
+          <ol class="roadmap">
+            <li class="is-active"><span class="step mono">01</span><div><strong>Literature review</strong><p>Expertise assessment from physiological signals: what has been measured, how, and what worked.</p></div></li>
+            <li><span class="step mono">02</span><div><strong>Concepts</strong><p>Understanding the key concepts and how expertise relates to physiological measurements such as HRV.</p></div></li>
+            <li><span class="step mono">03</span><div><strong>EgoLOAD dataset</strong><p>Getting familiar with the data: assembly tasks recorded from an egocentric perspective, with ECG.</p></div></li>
+            <li><span class="step mono">04</span><div><strong>Models</strong><p>Statistical analyses and deep learning models that classify expertise levels through pairwise comparisons.</p></div></li>
+          </ol>
+          <div class="chips">
+            <span>ECG</span><span>HRV</span><span>Physiological signals</span><span>Egocentric data</span><span>Pairwise comparison</span><span>Statistics</span><span>Deep learning</span><span>PyTorch</span>
+          </div>
+        </div>
+      </article>
+
 
       <!-- FER -->
       <article class="project reveal" data-tabs>
@@ -411,29 +428,8 @@
     </div>
   </section>
 
-  <!-- ============ EDUCATION ============ -->
-  <section class="section" id="education">
-    <div class="wrap">
-      <h2 class="section__title reveal">Education</h2>
-      <div class="edu">
-        <div class="edu__item reveal">
-          <div class="edu__date mono">2025 – 2027</div>
-          <div><h3>Master's in Data Science</h3><p class="tl__org">Université de Lille · École Centrale de Lille · IMT Nord Europe</p></div>
-        </div>
-        <div class="edu__item reveal">
-          <div class="edu__date mono">2022 – 2025</div>
-          <div><h3>Bachelor's in Computer &amp; Communication Network Engineering</h3><p class="tl__org">Lebanese University · <strong>ranked 1st</strong>, 17/20</p></div>
-        </div>
-        <div class="edu__item reveal">
-          <div class="edu__date mono">2021 – 2022</div>
-          <div><h3>Lebanese Baccalaureate, General Sciences</h3><p class="tl__org">Iman Barja School · 18.55/20 · <strong>ranked 12th nationally</strong></p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ SKILLS ============ -->
-  <section class="section section--tint" id="skills">
+  <section class="section" id="skills">
     <div class="wrap">
       <h2 class="section__title reveal">Skills</h2>
       <div class="skills">
