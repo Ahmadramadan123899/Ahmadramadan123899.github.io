@@ -1,20 +1,477 @@
----
-layout: default
-title: Home
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahmad Ramadan | Data Science M2 · Deep Learning & Data Engineering</title>
+  <meta name="description" content="Ahmad Ramadan, M2 Data Science student at Université de Lille, Centrale Lille and IMT Nord Europe. Deep learning research (facial expression recognition, ECG/HRV), data pipelines and forecasting. Looking for a 6-month internship from March 2027.">
+  <meta property="og:title" content="Ahmad Ramadan | Data Science M2">
+  <meta property="og:description" content="Deep learning research, data pipelines and forecasting. Looking for a 6-month internship from 23 March 2027.">
+  <meta property="og:image" content="https://ahmadramadan123899.github.io/assets/img/ahmad.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M8 36h12l5-12 7 22 6-16 4 6h14' fill='none' stroke='%23ff5d73' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})();
+  </script>
+</head>
+<body>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <article class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<a class="skip" href="#main">Skip to content</a>
 
-    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top" aria-label="Back to top">
+      <svg viewBox="0 0 64 24" aria-hidden="true"><path d="M2 14h14l4-9 6 16 5-12 3 5h28" /></svg>
+      <span>Ahmad Ramadan</span>
+    </a>
+    <nav class="nav__links" id="navlinks" aria-label="Sections">
+      <a href="#now">Now</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="icon-btn" id="themeToggle" aria-label="Switch light/dark theme" title="Switch theme">
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="icon-btn nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-    {{ post.content }}
-  </article>
-  {% endfor %}
-</div>
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <svg class="hero__ecg" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+      <path class="ecg-trace" d="M0 90 H160 l14 -8 l12 8 H240 l10 18 l16 -96 l16 118 l12 -40 H360 l22 -14 l22 14 H560 l14 -8 l12 8 H640 l10 18 l16 -96 l16 118 l12 -40 H760 l22 -14 l22 14 H960 l14 -8 l12 8 H1040 l10 18 l16 -96 l16 118 l12 -40 H1160 l20 -12 l20 12"/>
+    </svg>
+    <div class="hero__inner">
+      <div class="hero__text reveal">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Open to a 6-month internship · from 23 March 2027</p>
+        <h1 class="hero__name">Ahmad Ramadan</h1>
+        <p class="hero__role">Data Science M2 · deep learning research &amp; data engineering</p>
+        <p class="hero__meta">Université de Lille · Centrale Lille · IMT Nord Europe <span class="sep">|</span> Lille, France</p>
+        <p class="hero__lead">I like taking messy, real-world data all the way to something that works: video pipelines and graph transformers for facial expressions, a live bike-sharing pipeline with forecasting, and now <strong>heart signals (ECG/HRV) to measure expertise</strong>.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="mailto:ahmad.ramadan2005f@gmail.com">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahmad-ramadan-datascience" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.1 21 14.3V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"/></svg>LinkedIn</a>
+          <a class="btn" href="https://github.com/Ahmadramadan123899" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+          <a class="btn btn--ghost" href="assets/CV_Ahmad_Ramadan.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg>CV (PDF)</a>
+        </div>
+      </div>
+      <div class="hero__photo reveal">
+        <div class="photo-ring">
+          <img src="assets/img/ahmad.jpg" alt="Portrait of Ahmad Ramadan" width="360" height="360">
+        </div>
+        <div class="photo-tag photo-tag--a"><span class="mono">+7.8 pts</span> AFEW accuracy</div>
+        <div class="photo-tag photo-tag--b"><span class="mono">1st / 9</span> Kaggle challenge</div>
+      </div>
+    </div>
+
+    <ul class="stats reveal" aria-label="Highlights">
+      <li><span class="stat__num mono" data-count="10">10</span><span class="stat__label">months of deep learning research at the CRIStAL lab</span></li>
+      <li><span class="stat__num mono"><span data-count="46.48" data-dec="2">46.48</span>%</span><span class="stat__label">on AFEW (in-the-wild videos), up from 38.64%</span></li>
+      <li><span class="stat__num mono">1<sup>st</sup>/9</span><span class="stat__label">teams, Kaggle motion-to-text retrieval challenge</span></li>
+      <li><span class="stat__num mono">~<span data-count="1500">1500</span></span><span class="stat__label">Paris bike stations ingested every 5 minutes</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="wrap two-col">
+      <h2 class="section__title reveal">About</h2>
+      <div class="prose reveal">
+        <p>I'm a second-year Master's student in <strong>Data Science</strong> at Université de Lille, in the joint programme with École Centrale de Lille and IMT Nord Europe. Before that I did a Bachelor's in Computer &amp; Communication Network Engineering at the Lebanese University, where I graduated <strong>ranked 1st</strong>.</p>
+        <p>I spent 10 months at the <strong>CRIStAL lab</strong> rebuilding an unpublished graph-transformer model for facial expression recognition, then pushing it on hard, in-the-wild video. On the engineering side, I enjoy building things that run by themselves: ingestion, dbt models with tests, Airflow, CI, dashboards.</p>
+        <p>I'm now looking for a <strong>6-month end-of-studies internship starting 23 March 2027</strong> in data science, data engineering or AI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOW: M2 RESEARCH ============ -->
+  <section class="section section--tint" id="now">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <p class="kicker"><span class="pulse-dot" aria-hidden="true"></span> Now · M2 research project · 2026–2027</p>
+        <h2 class="section__title">Can your heartbeat tell an expert from a novice?</h2>
+      </div>
+
+      <article class="research reveal">
+        <div class="research__monitor" aria-hidden="true">
+          <div class="monitor__top">
+            <span class="mono">ECG · lead I</span>
+            <span class="mono monitor__bpm"><span class="heart">&#9829;</span> <span id="bpm">72</span> bpm</span>
+          </div>
+          <svg class="monitor__svg" viewBox="0 0 600 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="fade" x1="0" x2="1">
+                <stop offset="0" stop-color="var(--ecg)" stop-opacity="0"/>
+                <stop offset=".15" stop-color="var(--ecg)" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <path class="monitor__trace" d="M0 70 H50 l8 -5 l8 5 H90 l6 10 l9 -60 l10 72 l7 -22 H140 l14 -9 l14 9 H200 l8 -5 l8 5 H240 l6 10 l9 -60 l10 72 l7 -22 H290 l14 -9 l14 9 H350 l8 -5 l8 5 H390 l6 10 l9 -60 l10 72 l7 -22 H440 l14 -9 l14 9 H500 l8 -5 l8 5 H540 l6 10 l9 -60 l10 72 l7 -22 H600"/>
+          </svg>
+          <div class="monitor__bottom mono">
+            <span>RR intervals → HRV features</span><span>novice ⟷ expert</span>
+          </div>
+        </div>
+
+        <div class="research__body">
+          <h3>Multimodal analysis of ECG/HRV data for expertise assessment during assembly tasks</h3>
+          <p class="muted">M2 research project · Université de Lille · egocentric perspective · EgoLOAD dataset</p>
+          <p>When someone assembles an object, their body reacts to how hard the task feels for them. The idea of this project is to use <strong>heart activity (ECG) and heart-rate variability (HRV)</strong>, from an egocentric (first-person) perspective, to estimate <strong>how expert a person is</strong>, by comparing people in pairs.</p>
+          <ol class="roadmap">
+            <li class="is-active"><span class="step mono">01</span><div><strong>Literature review</strong><p>Expertise assessment from physiological signals: what has been measured, how, and what worked.</p></div></li>
+            <li><span class="step mono">02</span><div><strong>Concepts</strong><p>Understanding the key concepts and how expertise relates to physiological measurements such as HRV.</p></div></li>
+            <li><span class="step mono">03</span><div><strong>EgoLOAD dataset</strong><p>Getting familiar with the data: assembly tasks recorded from an egocentric perspective, with ECG.</p></div></li>
+            <li><span class="step mono">04</span><div><strong>Models</strong><p>Statistical analyses and deep learning models that classify expertise levels through pairwise comparisons.</p></div></li>
+          </ol>
+          <div class="chips">
+            <span>ECG</span><span>HRV</span><span>Physiological signals</span><span>Egocentric data</span><span>Pairwise comparison</span><span>Statistics</span><span>Deep learning</span><span>PyTorch</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <h2 class="section__title reveal">Experience</h2>
+      <ol class="timeline">
+        <li class="tl reveal">
+          <div class="tl__date mono">2026 – 2027</div>
+          <div class="tl__card">
+            <h3>M2 Research Project · ECG/HRV &amp; Expertise</h3>
+            <p class="tl__org">Université de Lille, France</p>
+            <p>Multimodal analysis of heart signals to assess expertise during assembly tasks, on the EgoLOAD dataset (see <a href="#now">Now</a>).</p>
+          </div>
+        </li>
+        <li class="tl reveal">
+          <div class="tl__date mono">Sep 2025 – Jul 2026</div>
+          <div class="tl__card">
+            <h3>Research Project &amp; Internship · Facial Expression Recognition</h3>
+            <p class="tl__org">CRIStAL Lab (CNRS, Université de Lille) · 3D SAM &amp; FOX teams · supervised by Tanmoy Mondal and Deise Santana Maia</p>
+            <ul>
+              <li>Rebuilt from scratch <strong>Graph-Tran / STGFormer</strong> (Zhao et al., 2023), a geometry-guided model combining spatial-temporal graph convolutions and transformers, whose code was never published.</li>
+              <li>Built the full video pipeline (frame extraction, 68-point facial landmarks, patch extraction) for <strong>5 datasets</strong>: CK+, Oulu-CASIA, eNTERFACE05, AFEW and CAER, with a streaming loader for CAER's ~13,000 clips.</li>
+              <li>Designed a <strong>dual-pathway</strong> encoder (patches + whole face, exchanging information) that raised in-the-wild AFEW accuracy from <strong>38.64% to 46.48%</strong>; CK+ reached <strong>96.62%</strong>.</li>
+              <li>Found and fixed silent bugs (input-resolution mismatch, wrong normalization for a pretrained ResNet, tensor contiguity, OOM) and ran systematic ablations. Wrote a lab guide for the next students.</li>
+            </ul>
+            <div class="chips chips--sm"><span>PyTorch</span><span>PyTorch Geometric</span><span>GCN</span><span>Transformers</span><span>ResNet-18</span><span>OpenCV</span><span>GPU server</span></div>
+          </div>
+        </li>
+        <li class="tl reveal">
+          <div class="tl__date mono">Apr – May 2025</div>
+          <div class="tl__card">
+            <h3>Web Development Trainee</h3>
+            <p class="tl__org">Laptop · Lebanon</p>
+            <p>Built an e-commerce website with product filtering, a cart and an admin side. <a href="https://github.com/Ahmadramadan123899/coffee-shop-ecommerce" target="_blank" rel="noopener">React (Vite), Node.js, PostgreSQL</a>.</p>
+          </div>
+        </li>
+        <li class="tl reveal">
+          <div class="tl__date mono">Aug – Oct 2024</div>
+          <div class="tl__card">
+            <h3>Network &amp; IT Intern</h3>
+            <p class="tl__org">OGERO · Lebanon</p>
+            <p>Internship at Lebanon's national telecom infrastructure operator, during my Bachelor's in network engineering.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section section--tint" id="projects">
+    <div class="wrap">
+      <h2 class="section__title reveal">Projects</h2>
+
+      <!-- FER -->
+      <article class="project reveal" data-tabs>
+        <header class="project__head">
+          <div>
+            <p class="project__kicker mono">Research · CRIStAL lab · 2025–2026</p>
+            <h3>Facial Expression Recognition from Videos</h3>
+            <p class="project__sub">A model that watches a short face video and says which emotion it shows, by following 68 face points over time and reading the skin around each point.</p>
+          </div>
+          <a class="btn btn--sm" href="https://github.com/Ahmadramadan123899/facial-expression-recognition" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </header>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true">Overview</button>
+          <button role="tab" aria-selected="false">Model</button>
+          <button role="tab" aria-selected="false">Results</button>
+          <button role="tab" aria-selected="false">What I learned</button>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="tiles">
+            <div class="tile"><b class="mono">5</b><span>datasets (3 lab, 2 in-the-wild)</span></div>
+            <div class="tile"><b class="mono">68</b><span>facial landmarks per frame, 16 frames</span></div>
+            <div class="tile"><b class="mono">96.62%</b><span>CK+ accuracy (paper: 98.78%)</span></div>
+            <div class="tile"><b class="mono">+7.84</b><span>points on AFEW with my changes</span></div>
+          </div>
+          <p>The method of Zhao et al. (IEEE TAC, 2023) had no public code. In the <strong>M1 research project</strong> I rebuilt it from scratch and validated it on CK+ (92.98%). During the <strong>internship</strong> I extended it to five datasets, investigated why it does much worse on real-life clips from movies and TV shows, and tried new ways for the model to look at the face.</p>
+          <p>On lab data, the rebuild matches the paper closely. On in-the-wild data it started far behind; my dual-pathway encoder closed a good part of the gap on AFEW.</p>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <div class="flow" aria-label="Model pipeline">
+            <span class="node">Video · 16 frames</span><span class="arrow">→</span>
+            <span class="node">68 face points (2D-FAN)<br><small>+ patch around each point</small></span><span class="arrow">→</span>
+            <span class="node">3 graph branches<br><small>+ ResNet-18 (FER+)</small></span><span class="arrow">→</span>
+            <span class="node">Fusion</span><span class="arrow">→</span>
+            <span class="node">GCN + spatial &amp; temporal transformers</span><span class="arrow">→</span>
+            <span class="node node--accent">Emotion</span>
+          </div>
+          <ul class="bullets">
+            <li>The face points form a <strong>graph</strong>: points that belong together (corners of an eye, outline of the mouth) are connected.</li>
+            <li>For each point: its position relative to the nose, its position inside its own face part, and how much it moved since the last frame.</li>
+            <li><strong>Graph convolutions</strong> share information between neighbours; <strong>transformers</strong> let every point attend to every other point and every frame to every other frame.</li>
+            <li>An attention step learns which face parts and which frames matter most (the mouth for a smile, the peak of the expression).</li>
+            <li>Training: cross-entropy + center loss. Fine-tuning the ResNet patch encoder end-to-end alone raised AFEW from 29.77% to 38.64%.</li>
+          </ul>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <h4 class="panel__title">Reading the face on AFEW (in-the-wild)</h4>
+          <div class="bars" data-min="35" data-max="48">
+            <div class="bar"><span class="bar__label">Small patches only (paper)</span><span class="bar__track"><i style="--v:38.64"></i></span><b class="mono">38.64%</b></div>
+            <div class="bar"><span class="bar__label">Whole-face summary given to every point</span><span class="bar__track"><i style="--v:41.51"></i></span><b class="mono">41.51%</b></div>
+            <div class="bar"><span class="bar__label">Whole-face features at each point's position</span><span class="bar__track"><i style="--v:43.08"></i></span><b class="mono">43.08%</b></div>
+            <div class="bar"><span class="bar__label">Same, at 3 levels of detail</span><span class="bar__track"><i style="--v:45.17"></i></span><b class="mono">45.17%</b></div>
+            <div class="bar bar--best"><span class="bar__label">Dual pathway, patches ⟷ whole face (FragNet-inspired)</span><span class="bar__track"><i style="--v:46.48"></i></span><b class="mono">46.48%</b></div>
+          </div>
+          <h4 class="panel__title">Across datasets</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Dataset</th><th>Type</th><th>My rebuild</th><th>With my changes</th><th>Paper</th></tr></thead>
+              <tbody>
+                <tr><td>CK+</td><td>lab</td><td>92.44%</td><td><b>96.62%</b></td><td>98.78%</td></tr>
+                <tr><td>Oulu-CASIA</td><td>lab</td><td>82.50%</td><td>–</td><td>89.17%</td></tr>
+                <tr><td>eNTERFACE05</td><td>lab</td><td>53.39%</td><td>–</td><td>54.62%</td></tr>
+                <tr><td>AFEW</td><td>movies</td><td>38.64%</td><td><b>46.48%</b></td><td>51.17%</td></tr>
+                <tr><td>CAER</td><td>TV shows</td><td>48.31%</td><td>–</td><td>77.06%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted small">“–”: no time left in the internship to run the changes on that dataset.</p>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <ul class="bullets">
+            <li><strong>Reproducing a paper is research too.</strong> Many details that matter are not written down; the remaining gap on in-the-wild data most likely comes from undocumented training details.</li>
+            <li><strong>Silent bugs are the worst bugs.</strong> The pretrained FER+ ResNet-18 was not trained with ImageNet normalization, but the code applied it by default, quietly degrading every feature.</li>
+            <li><strong>Negative results are results.</strong> Five other landmark normalizations, bigger patches (224×224) and turning everything on at once (38.90%) did not help, and that saved the next student weeks.</li>
+            <li><strong>Leave the lab better than you found it.</strong> I wrote a full lab guide with every dataset, training mode and the exact command behind each result.</li>
+          </ul>
+        </div>
+        <div class="chips chips--sm project__chips"><span>Python</span><span>PyTorch</span><span>PyTorch Geometric</span><span>GCN</span><span>Transformers</span><span>ResNet</span><span>OpenCV</span><span>Video</span></div>
+      </article>
+
+      <!-- VELIB -->
+      <article class="project reveal" data-tabs>
+        <header class="project__head">
+          <div>
+            <p class="project__kicker mono">Personal project · Oct – Nov 2026</p>
+            <h3>Vélib' Bike-Share Data Pipeline &amp; Forecasting</h3>
+            <p class="project__sub">An end-to-end pipeline on live Paris bike-sharing data: ingestion every 5 minutes, warehouse modelling with tests, orchestration, dashboards and a one-hour forecast.</p>
+          </div>
+          <a class="btn btn--sm" href="https://github.com/Ahmadramadan123899/velib-pipeline" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </header>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true">Overview</button>
+          <button role="tab" aria-selected="false">Pipeline</button>
+          <button role="tab" aria-selected="false">Dashboards</button>
+          <button role="tab" aria-selected="false">Forecast</button>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="tiles">
+            <div class="tile"><b class="mono">~1,500</b><span>stations, polled every 5 minutes</span></div>
+            <div class="tile"><b class="mono">17</b><span>dbt data tests</span></div>
+            <div class="tile"><b class="mono">2</b><span>Airflow DAGs (5 min + hourly)</span></div>
+            <div class="tile"><b class="mono">−19%</b><span>forecast error at the morning rush</span></div>
+          </div>
+          <p>Raw station status is saved as replayable files, then loaded into PostgreSQL by an <strong>idempotent Python loader</strong>, so a run can be replayed without duplicates. dbt turns it into a star schema plus ML features, Airflow runs everything, and pytest + GitHub Actions keep it honest.</p>
+          <p>One real data problem: some stations reported impossible capacities. I fixed them with a <strong>95th-percentile rule</strong> on observed bikes and docks.</p>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <div class="flow">
+            <span class="node">Vélib' GBFS API</span><span class="arrow">→</span>
+            <span class="node">Raw JSON files<br><small>replayable</small></span><span class="arrow">→</span>
+            <span class="node">Python loader<br><small>idempotent</small></span><span class="arrow">→</span>
+            <span class="node">PostgreSQL<br><small>Docker</small></span><span class="arrow">→</span>
+            <span class="node">dbt<br><small>staging · star schema · features</small></span><span class="arrow">→</span>
+            <span class="node node--accent">Power BI · LightGBM</span>
+          </div>
+          <figure class="shot">
+            <img src="assets/img/velib-airflow.jpg" alt="Airflow UI showing the two DAGs velib_ingest every 5 minutes and velib_hourly, all runs successful" loading="lazy" width="1363" height="557">
+            <figcaption>Two Airflow DAGs: <code>velib_ingest</code> every 5 minutes, <code>velib_hourly</code> for the dbt build and model retraining.</figcaption>
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <figure class="shot">
+            <img src="assets/img/velib-commute.jpg" alt="Power BI dashboard: share of stations empty or full by hour" loading="lazy" width="970" height="486">
+            <figcaption>Power BI: when do stations run empty or full? Also in the report: the morning commute and empty stations on the hills.</figcaption>
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <div class="tiles tiles--2">
+            <div class="tile"><b class="mono">−8%</b><span>error vs a strong baseline (bikes available in one hour)</span></div>
+            <div class="tile"><b class="mono">−19%</b><span>error vs the baseline during the morning rush</span></div>
+          </div>
+          <p>A <strong>LightGBM</strong> model predicts the number of available bikes one hour ahead, retrained every hour by Airflow. I also tested hourly Paris weather (Open-Meteo) as extra features: honest result, no gain yet.</p>
+        </div>
+        <div class="chips chips--sm project__chips"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>dbt</span><span>Airflow</span><span>Docker</span><span>Power BI</span><span>LightGBM</span><span>pytest</span><span>GitHub Actions</span></div>
+      </article>
+
+      <!-- MOTION TO TEXT -->
+      <article class="project reveal" data-tabs>
+        <header class="project__head">
+          <div>
+            <p class="project__kicker mono">Kaggle data challenge · team · Feb 2026</p>
+            <h3>Motion-to-Text Retrieval <span class="badge">🏆 1st of 9 teams</span></h3>
+            <p class="project__sub">Given a 3D motion of two people interacting (a handshake, a push, a hug…), find the sentence that describes it among 32 candidates.</p>
+          </div>
+          <a class="btn btn--sm" href="https://github.com/Ahmadramadan123899/motion-to-text-retrieval" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </header>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true">Overview</button>
+          <button role="tab" aria-selected="false">Method</button>
+          <button role="tab" aria-selected="false">Leaderboard</button>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="tiles">
+            <div class="tile"><b class="mono">0.703</b><span>private score, 1st / 9</span></div>
+            <div class="tile"><b class="mono">0.896</b><span>public score, 2nd / 9</span></div>
+            <div class="tile"><b class="mono">256-d</b><span>shared motion–text space</span></div>
+            <div class="tile"><b class="mono">4 days</b><span>competition length</span></div>
+          </div>
+          <p>A CLIP-style model: two encoders map motions and sentences into the same space, and candidates are ranked by cosine similarity. The private half of the test set was harder for every team; <strong>ours dropped the least</strong>, which took us from 2nd to 1st.</p>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <div class="flow">
+            <span class="node">Motion<br><small>frames × 384</small></span><span class="arrow">→</span>
+            <span class="node">+ velocity, acceleration<br><small>+ person-to-person distances</small></span><span class="arrow">→</span>
+            <span class="node">BiGRU + BiLSTM<br><small>attention pooling</small></span><span class="arrow">→</span>
+            <span class="node node--accent">cosine similarity</span><span class="arrow">←</span>
+            <span class="node">MPNet<br><small>pretrained, fine-tuned</small></span>
+          </div>
+          <ul class="bullets">
+            <li>Symmetric contrastive loss (InfoNCE) with a <strong>learnable temperature</strong>, batches of 64.</li>
+            <li>Augmentation: random rotation around the vertical axis and <strong>swapping the two people</strong> (“one person… the other”).</li>
+            <li>Dropout 0.3, AdamW with weight decay 0.05, cosine schedule, gradient clipping; normalization statistics from the training split only.</li>
+          </ul>
+        </div>
+        <div class="panel" role="tabpanel" hidden>
+          <h4 class="panel__title">Drop from public to private score (lower is better)</h4>
+          <div class="bars bars--drop" data-min="0" data-max="0.4">
+            <div class="bar bar--best"><span class="bar__label">Our team</span><span class="bar__track"><i style="--v:0.19"></i></span><b class="mono">−0.19</b></div>
+            <div class="bar"><span class="bar__label">Best other team</span><span class="bar__track"><i style="--v:0.21"></i></span><b class="mono">−0.21</b></div>
+            <div class="bar"><span class="bar__label">Worst other team</span><span class="bar__track"><i style="--v:0.38"></i></span><b class="mono">−0.38</b></div>
+          </div>
+          <p class="muted small">Score: weighted average of Recall@1…10 with weight 1/k. We believe augmentation and strong regularization are why our model memorized less.</p>
+        </div>
+        <div class="chips chips--sm project__chips"><span>PyTorch</span><span>Hugging Face</span><span>Contrastive learning</span><span>InfoNCE</span><span>RNN</span><span>scikit-learn</span></div>
+      </article>
+
+      <!-- SMALL PROJECTS -->
+      <div class="mini-grid">
+        <a class="mini reveal" href="https://github.com/Ahmadramadan123899/environment-economy-database" target="_blank" rel="noopener">
+          <p class="mono project__kicker">M1 course project</p>
+          <h3>Environmental &amp; Economic Database</h3>
+          <p>ETL pipeline integrating 4 public datasets (cities, climate, air pollution, GDP) into a 5-table relational database with referential integrity, plus cross-domain SQL analyses.</p>
+          <div class="chips chips--sm"><span>Python</span><span>pandas</span><span>SQLAlchemy</span><span>SQL</span></div>
+          <span class="mini__go">View repo ↗</span>
+        </a>
+        <a class="mini reveal" href="https://github.com/Ahmadramadan123899/university-timetable" target="_blank" rel="noopener">
+          <p class="mono project__kicker">Bachelor's senior project</p>
+          <h3>UniTimetable</h3>
+          <p>Web app where students and teachers see their university timetable and get notified when it changes.</p>
+          <div class="chips chips--sm"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span></div>
+          <span class="mini__go">View repo ↗</span>
+        </a>
+        <a class="mini reveal" href="https://github.com/Ahmadramadan123899/coffee-shop-ecommerce" target="_blank" rel="noopener">
+          <p class="mono project__kicker">Web development traineeship</p>
+          <h3>Coffee-shop e-commerce</h3>
+          <p>Online store with menu, product filtering, cart, orders and an admin dashboard.</p>
+          <div class="chips chips--sm"><span>React (Vite)</span><span>Node.js</span><span>PostgreSQL</span></div>
+          <span class="mini__go">View repo ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <h2 class="section__title reveal">Education</h2>
+      <div class="edu">
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2025 – 2027</div>
+          <div><h3>Master's in Data Science</h3><p class="tl__org">Université de Lille · École Centrale de Lille · IMT Nord Europe</p></div>
+        </div>
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2022 – 2025</div>
+          <div><h3>Bachelor's in Computer &amp; Communication Network Engineering</h3><p class="tl__org">Lebanese University · <strong>ranked 1st</strong>, 17/20</p></div>
+        </div>
+        <div class="edu__item reveal">
+          <div class="edu__date mono">2021 – 2022</div>
+          <div><h3>Lebanese Baccalaureate, General Sciences</h3><p class="tl__org">Iman Barja School · 18.55/20 · <strong>ranked 12th nationally</strong></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section section--tint" id="skills">
+    <div class="wrap">
+      <h2 class="section__title reveal">Skills</h2>
+      <div class="skills">
+        <div class="skill reveal"><h3>Machine &amp; deep learning</h3><div class="chips"><span>PyTorch</span><span>CNNs</span><span>GCNs</span><span>Transformers</span><span>Contrastive learning</span><span>LightGBM</span><span>Forecasting</span><span>Computer vision</span><span>scikit-learn</span></div></div>
+        <div class="skill reveal"><h3>Data engineering &amp; analysis</h3><div class="chips"><span>ETL pipelines</span><span>PostgreSQL</span><span>dbt</span><span>Airflow</span><span>Docker</span><span>Star schema</span><span>Data testing</span><span>Power BI</span><span>Excel</span></div></div>
+        <div class="skill reveal"><h3>Programming &amp; tools</h3><div class="chips"><span>Python</span><span>pandas</span><span>NumPy</span><span>pytest</span><span>SQL</span><span>Git</span><span>GitHub Actions</span><span>C</span><span>C#</span></div></div>
+        <div class="skill reveal"><h3>Web</h3><div class="chips"><span>React</span><span>TypeScript</span><span>JavaScript</span><span>Node.js</span><span>HTML</span><span>CSS</span></div></div>
+        <div class="skill reveal"><h3>Languages</h3>
+          <ul class="langs">
+            <li><span>Arabic</span><span class="lvl"><i style="--l:100%"></i></span><em>native</em></li>
+            <li><span>English</span><span class="lvl"><i style="--l:85%"></i></span><em>C1</em></li>
+            <li><span>French</span><span class="lvl"><i style="--l:68%"></i></span><em>B2</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact__inner reveal">
+      <h2 class="section__title">Let's talk</h2>
+      <p class="contact__lead">I'm looking for a <strong>6-month internship from 23 March 2027</strong> in data science, data engineering or AI. If you have a project where messy data needs to become something that works, I'd love to hear about it.</p>
+      <div class="hero__cta contact__cta">
+        <a class="btn btn--primary" href="mailto:ahmad.ramadan2005f@gmail.com">ahmad.ramadan2005f@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/ahmad-ramadan-datascience" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/Ahmadramadan123899" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn--ghost" href="assets/CV_Ahmad_Ramadan.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <svg viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18H250l8-4 8 4h20l5 6 7-22 7 26 5-10h40l10-6 10 6H600"/></svg>
+  <p>© <span id="year">2026</span> Ahmad Ramadan · Lille, France · Built by hand, no template.</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
