@@ -294,3 +294,6 @@ td{color:var(--ink-2)}
 .project-gap{margin-bottom:28px}
 .project__links{display:flex;flex-direction:column;gap:8px;align-items:stretch}
 @media (max-width:760px){.project__links{flex-direction:row;flex-wrap:wrap}}
+.tl__links,.mini__links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:.88rem;font-weight:600}
+.mini__links{margin-top:14px}
+.mini:hover{text-decoration:none}
